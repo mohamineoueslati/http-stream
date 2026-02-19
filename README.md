@@ -86,10 +86,28 @@ public class WebConfig {
 
 ## System Requirements
 
-- **Java**: 25 or higher
+### JDK Compatibility
+- **Java**: 17 or higher (tested and compatible with Java 17-23+)
+  - Minimum: Java 17 (required for Jakarta EE and modern Java features)
+  - Recommended: Java 21 LTS or latest stable version
+  - Forward compatible: Works with future Java versions
+
+### Build and Framework Requirements
 - **Maven**: 3.8.1 or higher
-- **Spring Framework**: 7.0.4+ (for Spring support)
-- **Spring Boot**: 4.0.2+ (for Spring Boot starter)
+- **Spring Framework**: 6.0.4 or higher (6.0.x, 6.1.x, 7.0.x)
+  - Minimum: Spring Framework 6.0.4 (required for Jakarta EE support)
+  - Latest tested: Spring Framework 7.0.4
+- **Spring Boot**: 3.0.0 or higher (3.0.x, 3.1.x, 3.2.x, 4.0.x)
+  - Minimum: Spring Boot 3.0.0 (required for @AutoConfiguration)
+  - Latest tested: Spring Boot 4.0.2
+
+### Version Compatibility Matrix
+| Java Version | Spring Framework | Spring Boot | Status |
+|---|---|---|---|
+| 17 | 6.0.4+ | 3.0.0+ | ✅ Supported |
+| 21 | 6.0.4+ | 3.0.0+ | ✅ Supported (Recommended) |
+| 23 | 6.0.4+ | 3.0.0+ | ✅ Supported |
+| 25+ | 6.0.4+ | 3.0.0+ | ✅ Compatible |
 
 ## Building
 
