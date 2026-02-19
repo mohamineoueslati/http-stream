@@ -7,11 +7,14 @@
     <parent>
         <groupId>io.github.mohamineoueslati</groupId>
         <artifactId>http-stream-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>http-stream-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
+
+    <name>HTTP Stream - Spring Boot Starter</name>
+    <description>Spring Boot auto-configuration starter for HTTP Stream with zero-configuration setup</description>
 
     <dependencies>
         <dependency>

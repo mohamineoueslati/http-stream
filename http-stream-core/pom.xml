@@ -7,11 +7,14 @@
     <parent>
         <groupId>io.github.mohamineoueslati</groupId>
         <artifactId>http-stream-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>http-stream-core</artifactId>
     <packaging>jar</packaging>
+
+    <name>HTTP Stream - Core</name>
+    <description>Core streaming functionality with memory-efficient JSON array processing</description>
 
     <dependencies>
         <dependency>

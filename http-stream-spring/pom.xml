@@ -7,11 +7,14 @@
     <parent>
         <groupId>io.github.mohamineoueslati</groupId>
         <artifactId>http-stream-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>http-stream-spring</artifactId>
     <packaging>jar</packaging>
+
+    <name>HTTP Stream - Spring Web MVC Integration</name>
+    <description>Spring Web MVC integration for HTTP Stream with @StreamBody annotation support</description>
 
     <dependencies>
         <dependency>
