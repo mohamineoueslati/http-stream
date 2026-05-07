@@ -10,6 +10,8 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.ObjectMapper;
 
 import java.util.stream.Stream;
 
@@ -20,6 +22,12 @@ import java.util.stream.Stream;
  * @since 1.0
  */
 public class StreamBodyArgumentResolver implements HandlerMethodArgumentResolver {
+
+    private final ObjectMapper objectMapper;
+
+    public StreamBodyArgumentResolver(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
@@ -39,12 +47,13 @@ public class StreamBodyArgumentResolver implements HandlerMethodArgumentResolver
         }
 
         ResolvableType resolvableType = ResolvableType.forMethodParameter(parameter);
-        Class<?> elementType = resolvableType.getGeneric(0).resolve();
+        ResolvableType elementType = resolvableType.getGeneric(0);
 
-        if (elementType == null) {
+        if (elementType == ResolvableType.NONE) {
             throw new IllegalArgumentException("Could not resolve element type of Stream");
         }
 
-        return RequestStream.from(request, elementType);
+        JavaType javaType = objectMapper.constructType(elementType.getType());
+        return RequestStream.from(request, javaType, objectMapper);
     }
 }

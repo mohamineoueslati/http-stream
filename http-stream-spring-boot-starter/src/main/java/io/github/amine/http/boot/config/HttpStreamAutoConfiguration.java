@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  * Autoconfiguration for http-stream in Spring Boot applications.
@@ -22,8 +23,8 @@ public class HttpStreamAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(HttpStreamWebConfig.class)
-    public WebMvcConfigurer httpStreamWebConfig() {
-        return new HttpStreamWebConfig();
+    public WebMvcConfigurer httpStreamWebConfig(ObjectMapper objectMapper) {
+        return new HttpStreamWebConfig(objectMapper);
     }
 
 }
